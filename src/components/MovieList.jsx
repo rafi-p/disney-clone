@@ -2,10 +2,11 @@ import React from 'react'
 import globalAPI from '../services/globalAPI'
 import MovieCard from './MovieCard'
 import { HiChevronLeft , HiChevronRight} from "react-icons/hi";
+import HrMovieCard from './HrMovieCard';
 const screenWidth = window.innerWidth
 
 
-export default function MovieList({genreId}) {
+export default function MovieList({genreId, index_}) {
     const [movieList, setMovieList] = React.useState([])
     const elementRef = React.useRef(null)
 
@@ -28,9 +29,9 @@ export default function MovieList({genreId}) {
     }
     return (
         <div className='relative'>
-            <HiChevronLeft className='hidden md:block text-white text-[30px] absolute mx-8 mt-[150px] cursor-pointer z-20' onClick={() => sliderLeft(elementRef.current)}/>
+            <HiChevronLeft className={`hidden md:block text-white text-[30px] absolute ${index_ % 3 === 0 ? 'mt-[80px]' : 'mt-[150px]'} mx-8  cursor-pointer z-20`} onClick={() => sliderLeft(elementRef.current)}/>
 
-            <HiChevronRight className='hidden md:block text-white text-[30px]  mx-8 mt-[150px] cursor-pointer absolute right-0 z-20' onClick={() => sliderRight(elementRef.current)}/>
+            <HiChevronRight className={`hidden md:block text-white text-[30px]  mx-8 ${index_ % 3 === 0 ? 'mt-[80px]' : 'mt-[150px]'} cursor-pointer absolute right-0 z-20`} onClick={() => sliderRight(elementRef.current)}/>
 
             <div
                 ref={elementRef}
@@ -38,7 +39,14 @@ export default function MovieList({genreId}) {
             >
                 {
                     movieList.map((item, index) => (
-                        <MovieCard key={index} movie={item}/>
+                        < >
+                            {
+                                index_ % 3 === 0
+                                ? <HrMovieCard movie={item}/>
+                                :
+                                <MovieCard movie={item}/>
+                            }
+                        </>
                     )) 
                 }
             </div>
