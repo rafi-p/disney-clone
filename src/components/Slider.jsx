@@ -17,7 +17,6 @@ export default function Slider() {
     const getTrendingMovies = () => {
         globalAPI.getTrendingVideos
             .then((res) => {
-                console.log(res.data.results)
                 setMovieList(res.data.results)
             })
     }
