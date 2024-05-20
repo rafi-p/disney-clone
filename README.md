@@ -1,6 +1,6 @@
-# React + Vite
+# Disney Clone
 
-This project is a frontend exploration of creating a beautiful and responsive UI inspired by the Disney Plus website. It provides a minimal setup to get React working in Vite with Hot Module Replacement (HMR) and some ESLint rules. There is no backend or server attached to this project.
+This project is a frontend exploration of creating a beautiful and responsive UI by using react + vite inspired by the Disney Plus website. It provides a minimal setup to get React working in Vite with Hot Module Replacement (HMR) and some ESLint rules. There is no backend or server attached to this project.
 
 ## Description
 
